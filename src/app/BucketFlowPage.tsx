@@ -68,7 +68,7 @@ export function BucketFlowPage() {
         <p>
           An educational tool demonstrating calculus concepts through fluid dynamics.
           <br />
-          <a href="https://github.com/bucket-flow-calculus" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/idealase/bucket-flow-calculus" target="_blank" rel="noopener noreferrer">
             View on GitHub
           </a>
         </p>
