@@ -1,0 +1,400 @@
+/* ============================================================================
+   BUCKET FLOW CALCULUS - Main Styles
+   ============================================================================ */
+
+/* Layout */
+.bucket-flow-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.page-header code {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #e9ecef;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* Desktop: Two columns */
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .viz-column {
+    flex: 0 0 350px;
+    max-width: 350px;
+  }
+
+  .charts-column {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Sections */
+.bucket-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.bucket-viz {
+  max-width: 300px;
+  width: 100%;
+}
+
+/* ============================================================================
+   READOUTS
+   ============================================================================ */
+
+.readouts-panel {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.readouts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .readouts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.readout-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.readout-label {
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.readout-value {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.readout-unit {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #888;
+  margin-left: 0.25rem;
+}
+
+.readout-item.highlight .readout-value {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ============================================================================
+   CONTROLS PANEL
+   ============================================================================ */
+
+.controls-panel {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.control-group {
+  margin-bottom: 1.25rem;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.control-group h3 {
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+/* Primary Controls (Start/Pause/Reset buttons) */
+.primary-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-primary {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #219a52;
+}
+
+.btn-primary.pause {
+  background: #e67e22;
+}
+
+.btn-primary.pause:hover {
+  background: #d35400;
+}
+
+.btn-secondary {
+  background: #e9ecef;
+  color: #444;
+}
+
+.btn-secondary:hover {
+  background: #dee2e6;
+}
+
+/* Sliders */
+.slider-control {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.slider-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 0.35rem;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e9ecef;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.slider-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #3498db;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider-row input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #3498db;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider-value {
+  min-width: 85px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8rem;
+  color: #444;
+  text-align: right;
+}
+
+/* Toggle Buttons */
+.toggle-control {
+  margin-bottom: 0.75rem;
+}
+
+.toggle-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 0.35rem;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 0;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dee2e6;
+  background: white;
+  color: #555;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toggle-btn:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.toggle-btn:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.toggle-btn.active {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: #f8f9fa;
+}
+
+/* ============================================================================
+   CHARTS
+   ============================================================================ */
+
+.flow-charts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chart-title {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+.chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .page-header .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .slider-value {
+    min-width: 75px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Touch-friendly targets */
+@media (pointer: coarse) {
+  .slider-row input[type="range"] {
+    height: 8px;
+  }
+
+  .slider-row input[type="range"]::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .slider-row input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .toggle-btn {
+    padding: 0.65rem 0.75rem;
+    min-height: 44px;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+}
